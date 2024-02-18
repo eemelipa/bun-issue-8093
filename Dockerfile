@@ -1,7 +1,8 @@
 FROM docker.io/oven/bun:debian
 
 COPY . .
-RUN bun install
+# Installing with `bun install --backend copyfile` works ok!
+RUN bun install --backend copyfile
 
 RUN ls -al /root/.bun/install/cache/@tanstack/
 RUN ls -al /root/.bun/install/cache/@tanstack/router-vite-plugin/
